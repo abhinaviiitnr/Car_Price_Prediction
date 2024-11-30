@@ -33,7 +33,7 @@ owner_mapping = {
 
 @app.route('/')
 def home():
-    return render_template('/Car_Price_Prediction/templates/index.html')  # Updated to 'index.html'
+    return render_template('/Car_Price_Prediction/index.html')  # Updated to 'index.html'
 
 @app.route('/details')
 def details():
