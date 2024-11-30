@@ -6,7 +6,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Load the model (ensure the correct path to the model)
-model_path = r'C:\pyth.py\MINOR\MINOR\model\car2.pkl'
+model_path = r'/Car_Price_Prediction/model/car2.pkl'
 
 try:
     # Load the pre-trained model
@@ -33,15 +33,15 @@ owner_mapping = {
 
 @app.route('/')
 def home():
-    return render_template('home.html')  # Updated to 'index.html'
+    return render_template('/Car_Price_Prediction/templates/index.html')  # Updated to 'index.html'
 
 @app.route('/details')
 def details():
-    return render_template('details.html')
+    return render_template('/Car_Price_Prediction/templates/details.html')
 
 @app.route('/reviews')
 def reviews():
-    return render_template('reviews.html')
+    return render_template('/Car_Price_Prediction/templates/reviews.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -78,10 +78,10 @@ def predict():
         # Format the result and pass it to the result page
         prediction_text = f"Predicted Car Price: ₹{predicted_price}"
 
-        return render_template('result.html', prediction_text=prediction_text)
+        return render_template('/Car_Price_Prediction/templates/result.html', prediction_text=prediction_text)
 
     except ValueError as e:
-        return render_template('details.html', error_message="Error in prediction: " + str(e))
+        return render_template('/Car_Price_Prediction/templates/details.html', error_message="Error in prediction: " + str(e))
 
 if __name__ == '__main__':
     app.run(debug=True)
